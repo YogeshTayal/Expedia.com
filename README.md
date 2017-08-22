@@ -1,6 +1,6 @@
 # Expedia.com
 
-This project is responsive and is created using AngularJs.
+This project is created using AngularJs and is somewhat responsive.
 
 You will need node.js to run this project.
 
