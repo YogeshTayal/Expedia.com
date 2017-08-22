@@ -1,0 +1,38 @@
+<h3>Hotels.com -
+    <span>wake up happy</span>
+</h3>
+<p>With over
+    <b>140,000 hotels</b> worldwide, <b>priced matched guaranteed</b> and <b>1.2 million</b> reviews, why look elsewhere for your next hotel booking.</p>
+<div>
+    <h4 class="destinations">Top Destinations</h4>
+    <hr>
+</div>
+
+<uib-accordion close-others="false">
+    <div uib-accordion-group ng-repeat="place in main.places" is-open="place.open">
+        <uib-accordion-heading>
+            <i class="glyphicon chevron" ng-class="{'glyphicon-chevron-down': place.open, 'glyphicon-chevron-right': !place.open}"></i>
+            <span class="header-text">{{place.location}}</span>
+            <div class="hotel-count">over {{place.hotelsCount}} hotels</div>
+        </uib-accordion-heading>
+        <div ng-repeat="hotel in place.hotels" class="row hotel-name-row">
+            <span class="col-lg-6 col-md-6 col-sm-12 hotel-name">{{hotel.name}}</span>
+            <div class="col-lg-3 col-md-3 col-sm-6">
+                <span ng-repeat="i in main.getStars(hotel.star)" class="glyphicon glyphicon-star stars"></span>
+            </div>
+
+            <div class="col-lg-3 col-md-3 col-sm-6">
+                From
+                <strike ng-show="hotel.mrp">&pound;{{hotel.mrp}}</strike>
+                <span class="price">&pound;{{hotel.price}}</span>
+            </div>
+        </div>
+        <div class="hotel-name see-all-hotels-row">See all {{place.hotelsCount}} hotels in {{place.city}}
+            <i class="glyphicon glyphicon-arrow-right"></i>
+        </div>
+
+    </div>
+</uib-accordion>
+<div class="hotel-name see-all-hotels-row footer">See all of our destination offers
+    <i class="glyphicon glyphicon-arrow-right"></i>
+</div>
